@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <table class="ui table segment">
+        <thead>
+        <tr>
+            <th>Store</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Note</th>
+            <th>Update</th>
+            <th>Url</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.store }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.note }}</td>
+                <td>{{ item['update'].strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td><a href="{{ item.url }}" target="_blank">Link</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

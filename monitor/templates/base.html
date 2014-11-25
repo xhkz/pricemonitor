@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Monitor</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Monitor">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/semantic.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel='stylesheet' type='text/css'
+          href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,vietnamese'>
+</head>
+<body>
+
+{% macro nav_link(endpoint, display) %}
+    <a class="{% if request.endpoint == endpoint %}active {% endif %}item"
+       href="{{ url_for(endpoint) }}">{{ display }}</a>
+{% endmacro %}
+
+<nav class="ui fixed transparent inverted main menu">
+    <a href="#" class="brand item">Monitor</a>
+    {{ nav_link('macbook_pro', 'Macbook Pro') }}
+    {{ nav_link('macbook_air', 'Macbook Air') }}
+    {{ nav_link('imac', 'iMac') }}
+    {{ nav_link('mac_pro', 'Mac Pro') }}
+    {{ nav_link('mini', 'Mac Mini') }}
+</nav>
+
+<div class="ui stackable page grid">
+    <div class="sixteen wide column">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<script src="{{ url_for('static', filename='javascript/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/semantic.min.js') }}"></script>
+</body>
+</html>

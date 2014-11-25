@@ -1,0 +1,5 @@
+Flask
+mongokit
+apscheduler
+requests
+beautifulsoup4
