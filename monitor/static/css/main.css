@@ -1,14 +1,35 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Open Sans", serif;
 }
 
-.ui.menu .item {
-    font-weight: 300;
-    font-size: 0.9rem;
+.ui.vertical.menu {
+    margin-top: -15px !important;
+    width: 100%;
+    display: none;
 }
 
-.column.starter {
-    padding: 40px 15px;
+.menu .right.menu > .mobile.item {
+    display: none;
+}
+
+#content {
+    padding-top: 0em;
+}
+
+/* Mobile Only */
+@media only screen and (max-width: 768px) {
+
+    .menu .right.menu > .item {
+        display: none;
+    }
+
+    .menu .right.menu > .mobile.item {
+        display: block;
+    }
+
+    .menu .right.menu > .mobile.item .menu {
+        left: auto;
+        right: 0em;
+    }
 }

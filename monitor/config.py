@@ -1,3 +1,2 @@
-DEBUG = True
+DEBUG = False
 TASK_INTERVAL = 600
-MONGODB_URI = 'mongodb://127.0.0.1:27017'

@@ -1,5 +1,7 @@
+import os
 from datetime import datetime
 
+from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 from flask import Flask
 from apscheduler.schedulers.background import BackgroundScheduler
 from mongokit import Connection, Document
@@ -8,14 +10,20 @@ from mongokit import Connection, Document
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 
-sched = BackgroundScheduler(logger=app.logger)
+executors = {
+    'default': ThreadPoolExecutor(20),
+    'processpool': ProcessPoolExecutor(5)
+}
+
+sched = BackgroundScheduler(executors=executors, logger=app.logger)
 sched.start()
 
-conn = Connection(app.config['MONGODB_URI'])
+conn = Connection(os.environ['OPENSHIFT_MONGODB_DB_URL'])
 col = conn['pricedb'].pricedata
 
 import views.main
-import tasks.job
+import tasks.mac
+import tasks.ipad
 
 
 @conn.register
@@ -30,10 +38,11 @@ class Record(Document):
         'price': unicode,
         'note': unicode,
         'update': datetime,
-        'url': unicode
+        'url': unicode,
+        'tag': unicode
     }
 
-    required_fields = ['store', 'name', 'price', 'url']
+    required_fields = ['store', 'name', 'price', 'url', 'tag']
 
     default_values = {
         'update': datetime.utcnow()
