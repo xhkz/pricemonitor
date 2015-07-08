@@ -6,7 +6,6 @@ from flask import Flask
 from apscheduler.schedulers.background import BackgroundScheduler
 from mongokit import Connection, Document
 
-
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 
@@ -22,8 +21,7 @@ conn = Connection(os.environ['OPENSHIFT_MONGODB_DB_URL'])
 col = conn['pricedb'].pricedata
 
 import views.main
-import tasks.mac
-import tasks.ipad
+import task.jobs
 
 
 @conn.register

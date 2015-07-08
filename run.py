@@ -1,4 +1,6 @@
-from monitor import app
+import os
 
 if __name__ == '__main__':
-    app.run(use_reloader=False)
+    os.environ['OPENSHIFT_MONGODB_DB_URL'] = 'mongodb://127.0.0.1:27017'
+    from monitor import app
+    app.run(debug=True, use_reloader=False, threaded=True)

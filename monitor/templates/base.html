@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/semantic.min.css') }}?v=1.3.2">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery.dataTables.min.css') }}?v=1.10.4">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}?v=0.0.1">
-    <script src="{{ url_for('static', filename='javascript/jquery.min.js') }}?v=1.11.1"></script>
-    <script src="{{ url_for('static', filename='javascript/jquery.dataTables.min.js') }}?v=1.10.4"></script>
-    <script src="{{ url_for('static', filename='javascript/semantic.min.js') }}?v=1.3.2"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.js"></script>
     <script src="{{ url_for('static', filename='javascript/main.js') }}?v=0.0.2"></script>
 </head>
 
@@ -33,21 +33,9 @@
 
                     <div class="menu">
                         {{ nav_link('macbook_pro', 'Macbook Pro') }}
-                        {{ nav_link('macbook_air', 'Macbook Air') }}
-                        {{ nav_link('imac', 'iMac') }}
-                        {{ nav_link('mac_pro', 'Mac Pro') }}
-                        {{ nav_link('mini', 'Mac Mini') }}
-                        {{ nav_link('ipad_air', 'Ipad Air') }}
-                        {{ nav_link('ipad_mini', 'Ipad Mini') }}
                     </div>
                 </div>
                 {{ nav_link('macbook_pro', 'Macbook Pro') }}
-                {{ nav_link('macbook_air', 'Macbook Air') }}
-                {{ nav_link('imac', 'iMac') }}
-                {{ nav_link('mac_pro', 'Mac Pro') }}
-                {{ nav_link('mini', 'Mac Mini') }}
-                {{ nav_link('ipad_air', 'Ipad Air') }}
-                {{ nav_link('ipad_mini', 'Ipad Mini') }}
             </div>
         </div>
     </div>
